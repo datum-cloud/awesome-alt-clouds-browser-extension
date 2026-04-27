@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alt Cloud Checker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ── Loading ─────────────────────────────────────────── -->
+    <div id="view-loading" class="view">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- ── Error / data unavailable ────────────────────────── -->
+    <div id="view-error" class="view hidden">
+      <div class="state-pill pill-error">⚠ Data unavailable</div>
+      <p class="body-text" id="error-msg">Could not load listing data. Check your connection.</p>
+      <button id="btn-retry" class="btn btn-secondary">Retry</button>
+    </div>
+
+    <!-- ── Home: this IS alt-cloud.org ─────────────────────── -->
+    <div id="view-home" class="view hidden">
+      <div class="state-pill pill-green">You're on Alt Cloud</div>
+      <p class="body-text">This is the Alt Cloud directory — <span id="home-count"></span> cloud services and counting.</p>
+    </div>
+
+    <!-- ── Unchecked (internal / denylist) ──────────────────── -->
+    <div id="view-unchecked" class="view hidden">
+      <div class="state-pill pill-grey">Not evaluated</div>
+      <p class="body-text">Alt Cloud doesn't check this type of page.</p>
+      <button id="btn-force-check" class="btn btn-ghost">Check this domain anyway</button>
+    </div>
+
+    <!-- ── State A: Listed 3/3 ──────────────────────────────── -->
+    <div id="view-green" class="view hidden">
+      <div class="state-pill pill-green">Listed on Alt Cloud</div>
+      <h2 class="entry-name" id="green-name"></h2>
+      <p class="entry-desc" id="green-desc"></p>
+      <div class="category-row">
+        <a class="cat-chip" id="green-cat" href="#" target="_blank"></a>
+      </div>
+      <div class="criteria-block" id="green-criteria"></div>
+      <div class="action-row">
+        <button class="btn btn-secondary btn-sm" id="green-view">View entry</button>
+        <button class="btn btn-ghost btn-sm" id="green-report">Report a correction</button>
+      </div>
+    </div>
+
+    <!-- ── State B: Listed 2/3 ──────────────────────────────── -->
+    <div id="view-yellow" class="view hidden">
+      <div class="state-pill pill-yellow">Listed — partial transparency</div>
+      <h2 class="entry-name" id="yellow-name"></h2>
+      <p class="entry-desc" id="yellow-desc"></p>
+      <div class="category-row">
+        <a class="cat-chip" id="yellow-cat" href="#" target="_blank"></a>
+      </div>
+      <div class="criteria-block" id="yellow-criteria"></div>
+      <div class="action-row">
+        <button class="btn btn-secondary btn-sm" id="yellow-view">View entry</button>
+        <button class="btn btn-ghost btn-sm" id="yellow-report">Report a correction</button>
+      </div>
+    </div>
+
+    <!-- ── State C: Future Cloud ────────────────────────────── -->
+    <div id="view-watch" class="view hidden">
+      <div class="state-pill pill-watch">On the watch list</div>
+      <h2 class="entry-name" id="watch-name"></h2>
+      <p class="entry-desc" id="watch-desc"></p>
+      <p class="future-note">
+        Alt Cloud tracks promising services that aren't fully transparent yet.
+        Today's "contact sales only" can become tomorrow's self-service leader.
+      </p>
+      <div class="criteria-block" id="watch-criteria"></div>
+      <div class="action-row">
+        <button class="btn btn-ghost btn-sm" id="watch-graduate">Suggest they graduate</button>
+      </div>
+    </div>
+
+    <!-- ── State D: Not listed ──────────────────────────────── -->
+    <div id="view-plus" class="view hidden">
+      <div class="state-pill pill-plus">Not listed on Alt Cloud</div>
+      <div class="suggest-meta" id="plus-meta"></div>
+      <button class="btn btn-primary" id="btn-suggest">Suggest this site</button>
+      <p class="criteria-hint">
+        Alt Cloud lists services with public pricing, self-service signup, and a status page.
+        <a href="https://github.com/datum-cloud/awesome-alt-clouds#criteria" target="_blank">See criteria</a>
+      </p>
+    </div>
+
+  </div><!-- /#app -->
+
+  <footer id="footer">
+    <img src="icons/altclouds-logo.png" alt="Alt Cloud" class="footer-logo">
+    <a id="footer-home" href="#" class="footer-link">alt-cloud.org</a>
+    <span class="sep">·</span>
+    <span id="footer-cache" class="footer-muted"></span>
+    <span class="sep">·</span>
+    <a id="footer-refresh" href="#" class="footer-link">Refresh</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
