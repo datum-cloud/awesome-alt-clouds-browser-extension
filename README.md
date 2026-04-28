@@ -14,13 +14,13 @@ Browser extension for [Alt Cloud](https://www.alt-cloud.org/) — check if any s
 
 On every page load the extension checks the tab's hostname against the Alt Cloud directory and shows one of five states:
 
-| State | Icon | Meaning |
-|-------|------|---------|
-| 🟢 Listed (3/3) | Green + ✓ | Meets all 3 transparency criteria |
-| 🟡 Listed (2/3) | Amber + ! | Meets 2 of 3 — popup shows what's missing |
-| 👀 Future Cloud | Blue | On the watch list |
-| ➕ Not listed | Grey + + | One-click suggest flow |
-| ⬜ Unchecked | Dim grey | Internal page, known platform, or dismissed |
+| State | Badge | Meaning |
+|-------|-------|---------|
+| 🟢 Listed (3/3) | ✓ green | Meets all 3 transparency criteria |
+| 🟡 Listed (2/3) | ! amber | Meets 2 of 3 — popup shows what's missing |
+| 🔵 Future Cloud | ~ blue | On the watch list |
+| ⚫ Not listed | ＋ grey | One-click suggest flow |
+| ⚪ Unchecked | - grey | Internal page or known platform (GitHub, Twitter, etc.) |
 
 ## Quick start (Chrome)
 
