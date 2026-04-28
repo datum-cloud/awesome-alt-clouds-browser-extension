@@ -36,11 +36,10 @@ const PLATFORM_DENYLIST = new Set([
 ]);
 
 const ICONS = {
-  grey:   { 16: 'icons/icon-grey-16.png',   48: 'icons/icon-grey-48.png',   128: 'icons/icon-grey-128.png' },
-  green:  { 16: 'icons/icon-green-16.png',  48: 'icons/icon-green-48.png',  128: 'icons/icon-green-128.png' },
-  yellow: { 16: 'icons/icon-yellow-16.png', 48: 'icons/icon-yellow-48.png', 128: 'icons/icon-yellow-128.png' },
-  watch:  { 16: 'icons/icon-watch-16.png',  48: 'icons/icon-watch-48.png',  128: 'icons/icon-watch-128.png' },
-  plus:   { 16: 'icons/icon-plus-16.png',   48: 'icons/icon-plus-48.png',   128: 'icons/icon-plus-128.png' },
+  16: 'icons/icon-16.png',
+  32: 'icons/icon-32.png',
+  48: 'icons/icon-48.png',
+  128: 'icons/icon-128.png',
 };
 
 // ---------------------------------------------------------------------------
@@ -196,16 +195,17 @@ async function computeState(tabUrl, clouds) {
 const BADGE_CONFIG = {
   green:  { text: '✓', color: '#1a7f37' },
   yellow: { text: '!', color: '#9a6700' },
-  watch:  { text: '·', color: '#0550ae' },
-  plus:   { text: '+', color: '#57606a' },
-  grey:   { text: '',  color: '#8c959f' },
+  watch:  { text: '~', color: '#0550ae' },
+  plus:   { text: '＋', color: '#57606a' },
+  grey:   { text: '-', color: '#57606a' },
 };
 
 async function applyBadge(tabId, state) {
-  await chrome.action.setIcon({ tabId, path: ICONS[state] ?? ICONS.grey });
+  await chrome.action.setIcon({ tabId, path: ICONS });
   const b = BADGE_CONFIG[state] ?? BADGE_CONFIG.grey;
   await chrome.action.setBadgeText({ tabId, text: b.text });
-  if (b.text) await chrome.action.setBadgeBackgroundColor({ tabId, color: b.color });
+  await chrome.action.setBadgeBackgroundColor({ tabId, color: b.color });
+  await chrome.action.setBadgeTextColor({ tabId, color: '#ffffff' });
 }
 
 async function updateTab(tabId, tabUrl) {
