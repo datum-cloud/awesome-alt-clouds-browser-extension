@@ -2,13 +2,20 @@
 
 Browser extension for [Alt Cloud](https://www.alt-cloud.org/) — check if any site you're browsing is in the Alt Cloud directory and suggest new listings with one click.
 
+## Install
+
+| Browser | Store link |
+|---------|------------|
+| Chrome / Chromium | [Alt Cloud Checker — Chrome Web Store](https://chromewebstore.google.com/detail/alt-cloud-checker/nijjhgdijgnlimemhdaghkhgiggofbin) |
+| Firefox | [Alt Cloud Checker — Firefox Add-ons](https://addons.mozilla.org/addon/alt-cloud-checker/) |
+
 ## Browser support
 
 | Directory | Target |
 |-----------|--------|
-| [`chrome/`](./chrome/) | Chrome / Chromium (Manifest V3) — **active** |
-| `firefox/` | Firefox (WebExtensions) — planned |
-| `edge/`    | Edge — same package as Chrome, planned |
+| [`chrome/`](./chrome/)   | Chrome / Chromium (Manifest V3) — **active** |
+| [`firefox/`](./firefox/) | Firefox 128+ (Manifest V3) — **active** |
+| `edge/`                  | Edge — same package as Chrome, planned |
 
 ## What it does
 
@@ -29,6 +36,14 @@ On every page load the extension checks the tab's hostname against the Alt Cloud
 3. Click **Load unpacked** → select the `chrome/` folder.
 
 See [`chrome/README.md`](./chrome/README.md) for full details including privacy statement, matching logic, and the suggestion flow.
+
+## Quick start (Firefox)
+
+1. Clone this repo.
+2. Open Firefox → `about:debugging` → **This Firefox** → **Load Temporary Add-on…**
+3. Pick `firefox/manifest.json`.
+
+The temporary add-on stays until Firefox is restarted.
 
 ## Directory listing data
 
