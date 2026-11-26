@@ -71,7 +71,7 @@ chrome/
 ├── popup.js             # Popup logic
 ├── popup.css            # Styles (supports prefers-color-scheme: dark)
 └── icons/
-    ├── altclouds-logo.png   # Source logo
+    ├── altclouds-logo.png   # Footer logo (rock-hand)
     ├── icon-16.png          # Toolbar icon (standard)
     ├── icon-32.png          # Toolbar icon (Retina/HiDPI)
     ├── icon-48.png          # Extensions management page
